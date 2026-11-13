@@ -84,5 +84,43 @@
         "msg": "Published to Discord"
       }
     ]
+  },
+  {
+    "started": "2026-11-13T16:26:57Z",
+    "finished": "2026-11-13T16:27:03Z",
+    "status": "success",
+    "summary": "Published news post to discord: Europe’s Highest Ski Resort Named World’s Best Again at World Ski Awar",
+    "lines": [
+      {
+        "t": "2026-11-13T16:27:00Z",
+        "level": "WARN",
+        "msg": "Feed problem - Freeskier: HTTPError: 429 Client Error: Too Many Requests for url: https://freeskier.com/feed"
+      },
+      {
+        "t": "2026-11-13T16:27:00Z",
+        "level": "INFO",
+        "msg": "Fetched 205 items from 12 feeds"
+      },
+      {
+        "t": "2026-11-13T16:27:00Z",
+        "level": "INFO",
+        "msg": "54 verified, relevant, fresh, non-duplicate candidates"
+      },
+      {
+        "t": "2026-11-13T16:27:01Z",
+        "level": "INFO",
+        "msg": "Using stage 'news': Europe’s Highest Ski Resort Named World’s Best Again at World Ski Awards 2026"
+      },
+      {
+        "t": "2026-11-13T16:27:02Z",
+        "level": "INFO",
+        "msg": "Photo: File:Station de Val Thorens vu du nord-ouest en hiver (2019).JPG (CC BY-SA 4.0)"
+      },
+      {
+        "t": "2026-11-13T16:27:03Z",
+        "level": "INFO",
+        "msg": "Published to Discord"
+      }
+    ]
   }
 ]
