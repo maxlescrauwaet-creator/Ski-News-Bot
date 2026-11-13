@@ -1,0 +1,23 @@
+{
+  "_note": "Feeds are best-effort. Run `python scripts/check_feeds.py` to see which respond. Dead feeds are skipped automatically at runtime. trust: 1 = aggregator (needs corroboration), 2 = reputable outlet, 3 = official/primary source.",
+  "trusted_domains": [
+    "snowbrains.com", "powder.com", "theguardian.com", "freeskier.com",
+    "skinet.com", "unofficialnetworks.com", "reuters.com", "bbc.com", "bbc.co.uk",
+    "apnews.com", "swissinfo.ch", "france24.com", "euronews.com", "newsinsnow.com",
+    "outsideonline.com", "denverpost.com", "seattletimes.com", "skiresort.info"
+  ],
+  "feeds": [
+    {"name": "SnowBrains", "url": "https://snowbrains.com/feed/", "trust": 2, "enabled": true},
+    {"name": "POWDER", "url": "https://www.powder.com/feed/", "trust": 2, "enabled": true},
+    {"name": "The Guardian", "url": "https://www.theguardian.com/travel/skiing/rss", "trust": 2, "enabled": true},
+    {"name": "Unofficial Networks", "url": "https://unofficialnetworks.com/feed/", "trust": 2, "enabled": true},
+    {"name": "Freeskier", "url": "https://freeskier.com/feed", "trust": 2, "enabled": true},
+    {"name": "Bing News: new lifts", "url": "https://www.bing.com/news/search?q=ski+resort+new+lift&format=rss", "trust": 1, "bing": true, "enabled": true},
+    {"name": "Bing News: snowmaking", "url": "https://www.bing.com/news/search?q=snowmaking+ski+resort&format=rss", "trust": 1, "bing": true, "enabled": true},
+    {"name": "Bing News: season opening", "url": "https://www.bing.com/news/search?q=ski+resort+opening+day&format=rss", "trust": 1, "bing": true, "enabled": true},
+    {"name": "Bing News: investment", "url": "https://www.bing.com/news/search?q=ski+resort+investment+expansion&format=rss", "trust": 1, "bing": true, "enabled": true},
+    {"name": "Bing News: snowfall", "url": "https://www.bing.com/news/search?q=ski+resort+snowfall&format=rss", "trust": 1, "bing": true, "enabled": true},
+    {"name": "Bing News: Alps", "url": "https://www.bing.com/news/search?q=Alps+ski+resorts&format=rss", "trust": 1, "bing": true, "enabled": true},
+    {"name": "Bing News: Japan/Hokkaido", "url": "https://www.bing.com/news/search?q=Japan+ski+resort+snow&format=rss", "trust": 1, "bing": true, "enabled": true}
+  ]
+}
