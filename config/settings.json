@@ -1,0 +1,30 @@
+{
+  "enabled": true,
+  "post_time_local": "18:00",
+  "timezone": "Europe/Brussels",
+  "brand_name": "Snowline Daily",
+  "handle": "@your_instagram_handle",
+  "max_age_hours": 96,
+  "min_score": 5,
+  "dedupe_days": 90,
+  "profile_cooldown_days": 120,
+  "fact_cooldown_days": 300,
+  "allow_share_alike_photos": true,
+  "hashtag_limit": 12,
+  "graph": {
+    "host": "graph.facebook.com",
+    "version": "v23.0"
+  },
+  "llm": {
+    "enabled": true,
+    "model": "openai/gpt-4.1-mini"
+  },
+  "publishers": {
+    "instagram": {
+      "enabled": false
+    },
+    "discord": {
+      "enabled": true
+    }
+  }
+}
