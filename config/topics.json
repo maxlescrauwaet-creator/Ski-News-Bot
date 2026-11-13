@@ -1,0 +1,57 @@
+{
+  "core_patterns": [
+    "\\bski(s|ing|er|ers)?\\b", "\\bsnowboard(s|ing|er|ers)?\\b", "\\bski resorts?\\b",
+    "\\bchair ?lifts?\\b", "\\bgondolas?\\b", "\\bsnow ?making\\b", "\\bsnow (guns?|cannons?|machines?)\\b",
+    "\\bpistes?\\b", "\\bslopes?\\b", "\\bcable cars?\\b", "\\bski lifts?\\b", "\\bwinter tourism\\b"
+  ],
+  "blocklist": [
+    "\\bdied\\b", "\\bdies\\b", "\\bdeath\\b", "\\bkilled\\b", "\\bfatal(ity|ities)?\\b", "\\bcrash(ed|es)?\\b",
+    "\\binjur(ed|y|ies)\\b", "\\bmissing\\b", "\\bassault\\b", "\\brape\\b", "\\barrest(ed)?\\b", "\\bmurder\\b",
+    "\\bshooting\\b", "\\bbody found\\b", "\\bburied\\b", "\\bsuicide\\b", "\\blawsuit\\b",
+    "\\bdeals?\\b", "\\bdiscounts?\\b", "\\bcoupon\\b", "\\bgear review\\b", "\\bbest ski (jackets?|goggles|boots|gear)\\b", "\\bsale\\b"
+  ],
+  "topics": {
+    "snowmaking": {
+      "label": "Snowmaking",
+      "keywords": ["snowmaking", "snow making", "snow gun", "snow guns", "snow cannon", "snow cannons", "snow machine", "artificial snow", "man-made snow", "snowmaker"],
+      "hashtags": ["snowmaking", "snowcannon", "skiindustry"],
+      "photo_queries": ["snow cannon ski slope", "snowmaking ski resort", "snow gun"]
+    },
+    "lifts": {
+      "label": "Lifts & Infrastructure",
+      "keywords": ["chairlift", "chair lift", "gondola", "cable car", "ski lift", "tramway", "funicular", "detachable", "lift replacement", "new lift"],
+      "hashtags": ["chairlift", "gondola", "skilift"],
+      "photo_queries": ["chairlift ski resort", "gondola ski resort", "cable car mountain winter"]
+    },
+    "openings": {
+      "label": "Season Update",
+      "keywords": ["opening day", "opens", "season opening", "opening date", "closing date", "closes", "season extended", "early opening", "opening weekend", "first turns", "season start"],
+      "hashtags": ["skiseason", "openingday", "winterseason"],
+      "photo_queries": ["ski resort winter morning", "ski slope sunrise", "ski resort snow"]
+    },
+    "snow": {
+      "label": "Snow & Weather",
+      "keywords": ["snowfall", "snow report", "powder", "base depth", "snowstorm", "storm", "cm of snow", "inches of snow", "snowpack", "fresh snow", "heavy snow", "cold snap"],
+      "hashtags": ["snowfall", "powder", "skiweather"],
+      "photo_queries": ["snowfall mountain village", "fresh powder ski slope", "snowy mountain forest"]
+    },
+    "investment": {
+      "label": "Investment & Expansion",
+      "keywords": ["investment", "investing", "expansion", "acquire", "acquisition", "acquires", "approved", "redevelopment", "new terrain", "master plan", "million", "billion", "plans to build", "new base area"],
+      "hashtags": ["skiindustry", "skiresortdevelopment", "mountaintourism"],
+      "photo_queries": ["ski resort village mountain", "ski resort aerial", "ski base area"]
+    },
+    "tourism": {
+      "label": "Winter Tourism",
+      "keywords": ["winter tourism", "skier visits", "visitors", "season pass", "bookings", "ski holiday", "ski tourism", "overnight stays"],
+      "hashtags": ["wintertourism", "skiholiday", "skitravel"],
+      "photo_queries": ["ski resort village", "alpine ski village winter", "ski slope skiers"]
+    },
+    "general": {
+      "label": "Ski News",
+      "keywords": ["new run", "new trail", "terrain park", "ski area", "ski resort"],
+      "hashtags": ["skinews", "skiresort"],
+      "photo_queries": ["ski resort", "ski slope", "alpine skiing"]
+    }
+  }
+}
