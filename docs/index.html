@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ski News Bot – Dashboard</title>
+<style>
+  :root{--bg:#f6f4ef;--card:#fff;--ink:#0b1b2b;--mut:#5b6b7a;--acc:#ff5a36;--ok:#1a7f4b;--bad:#c0392b;--line:#e3ded3}
+  @media (prefers-color-scheme:dark){:root{--bg:#0d1620;--card:#142130;--ink:#e8eef4;--mut:#8fa1b2;--line:#233447}}
+  *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,sans-serif}
+  main{max-width:1000px;margin:0 auto;padding:20px 16px 60px}
+  h1{font:700 26px Georgia,serif;margin:0 0 4px} h2{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin:28px 0 10px}
+  .grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+  .big{font-size:20px;font-weight:650} .mut{color:var(--mut);font-size:13px}
+  .ok{color:var(--ok)} .bad{color:var(--bad)}
+  .posts{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+  .post img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:8px;background:var(--line)}
+  .post a{color:var(--acc)} .post p{margin:6px 0 0;font-size:13px}
+  pre{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;overflow:auto;max-height:340px;font-size:12px;white-space:pre-wrap}
+  label{display:block;margin:8px 0 4px;font-size:13px;color:var(--mut)} input,button{font:inherit;padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+  button{background:var(--acc);color:#fff;border:0;cursor:pointer;margin:8px 8px 0 0} button.sec{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+</style>
+</head>
+<body>
+<main>
+  <h1>Ski News Bot</h1>
+  <div class="mut" id="repo"></div>
+
+  <h2>Status</h2>
+  <div class="grid">
+    <div class="card"><div class="mut">Last automation run</div><div class="big" id="lastRun">…</div><div class="mut" id="lastRunSub"></div></div>
+    <div class="card"><div class="mut">Last published</div><div class="big" id="lastPost">…</div><div class="mut" id="lastPostSub"></div></div>
+    <div class="card"><div class="mut">Next scheduled publication</div><div class="big" id="next">…</div><div class="mut" id="nextSub"></div></div>
+    <div class="card"><div class="mut">Automatic publishing</div><div class="big" id="enabled">…</div><div class="mut" id="failures"></div></div>
+  </div>
+
+  <h2>Latest posts</h2>
+  <div class="posts" id="posts"></div>
+
+  <h2>Settings</h2>
+  <div class="card">
+    <div class="mut">Changing settings commits to <code>config/settings.json</code> through the GitHub API. This needs a fine-grained
+    personal access token limited to <b>this repository</b> (Contents: read/write, and Actions: read/write for “Run now”).
+    The token is stored only in this browser’s localStorage.</div>
+    <label>GitHub token</label><input id="token" type="password" size="40" placeholder="github_pat_…">
+    <div class="row">
+      <div><label>Daily post time (local)</label><input id="time" type="time"></div>
+      <div><label>Time zone</label><input id="tz" placeholder="Europe/Brussels"></div>
+      <div><label>Publishing</label><select id="en"><option value="true">Enabled</option><option value="false">Disabled</option></select></div>
+    </div>
+    <button id="save">Save settings</button>
+    <button class="sec" id="dry">Run dry-run now</button>
+    <span class="mut" id="msg"></span>
+  </div>
+
+  <h2>Recent runs &amp; logs</h2>
+  <pre id="logs">Loading…</pre>
+</main>
+<script>
+const qs = new URLSearchParams(location.search);
+let [owner, repo] = (qs.get("repo") || "").split("/");
+if (!repo) { owner = location.hostname.split(".")[0]; repo = location.pathname.split("/")[1] || ""; }
+const API = `https://api.github.com/repos/${owner}/${repo}`;
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const get = async (u, o) => { const r = await fetch(u, o); if (!r.ok) throw new Error(u + " → " + r.status); return r.json(); };
+const fmt = (iso, tz) => iso ? new Date(iso).toLocaleString("en-GB", {dateStyle:"medium", timeStyle:"short", timeZone: tz}) : "–";
+let settings = {}, sha = null;
+$("repo").textContent = `${owner}/${repo}`;
+$("token").value = localStorage.getItem("skibot_token") || "";
+
+function nextPost(s, state) {
+  const tz = s.timezone, now = new Date();
+  const today = new Intl.DateTimeFormat("en-CA", {timeZone: tz}).format(now);
+  const hm = new Intl.DateTimeFormat("en-GB", {timeZone: tz, hour:"2-digit", minute:"2-digit", hour12:false}).format(now);
+  if (!s.enabled) return ["Paused", "Automatic publishing is disabled"];
+  if (state.last_post_date === today) return ["Tomorrow " + s.post_time_local, tz + " (hourly runner, may lag up to ~1 h)"];
+  if (hm < s.post_time_local) return ["Today " + s.post_time_local, tz + " (hourly runner, may lag up to ~1 h)"];
+  return ["Due now", "Posts at the next hourly run"];
+}
+
+async function load() {
+  const [state, hist, runs] = await Promise.all([
+    get("data/state.json?" + Date.now()), get("data/history.json?" + Date.now()), get("data/runs.json?" + Date.now())]);
+  try {
+    const f = await get(`${API}/contents/config/settings.json`);
+    settings = JSON.parse(decodeURIComponent(escape(atob(f.content.replace(/\n/g, ""))))); sha = f.sha;
+  } catch { settings = await get("../config/settings.json").catch(() => ({})); }
+  const tz = settings.timezone || "UTC";
+  const lr = state.last_run;
+  $("lastRun").innerHTML = lr ? `<span class="${lr.status === "failed" ? "bad" : "ok"}">${esc(lr.status)}</span>` : "No runs yet";
+  $("lastRunSub").textContent = lr ? fmt(lr.at, tz) + " – " + lr.summary : "";
+  const last = hist[hist.length - 1];
+  $("lastPost").textContent = last ? fmt(last.posted_at, tz) : "Nothing yet";
+  $("lastPostSub").textContent = last ? last.headline : "";
+  const [n, ns] = nextPost(settings, state); $("next").textContent = n; $("nextSub").textContent = ns;
+  $("enabled").innerHTML = settings.enabled ? '<span class="ok">Enabled</span>' : '<span class="bad">Disabled</span>';
+  $("failures").textContent = state.consecutive_failures ? `${state.consecutive_failures} consecutive failure(s): ${state.last_error?.message || ""}` : "No current failures";
+  $("time").value = settings.post_time_local || "18:00"; $("tz").value = settings.timezone || ""; $("en").value = String(!!settings.enabled);
+  $("posts").innerHTML = hist.slice(-12).reverse().map(h => `<div class="post card">
+    <img loading="lazy" src="posts/${esc(h.image)}" alt="" onerror="this.style.visibility='hidden'">
+    <p><b>${esc(h.headline)}</b></p><p class="mut">${esc(h.kind)} · ${fmt(h.posted_at, tz)}</p>
+    ${h.permalink ? `<p><a href="${esc(h.permalink)}" target="_blank" rel="noopener">View on Instagram</a></p>` : ""}</div>`).join("") || '<div class="mut">No posts yet.</div>';
+  $("logs").textContent = runs.slice(-8).reverse().map(r => `[${r.status.toUpperCase()}] ${r.started} – ${r.summary}\n` +
+    r.lines.map(l => `  ${l.level.padEnd(5)} ${l.msg}`).join("\n")).join("\n\n") || "No runs logged yet.";
+  try {
+    const wr = await get(`${API}/actions/workflows/post.yml/runs?per_page=1`);
+    const w = wr.workflow_runs?.[0]; if (w) $("lastRunSub").textContent += `  (GitHub: ${w.conclusion || w.status})`;
+  } catch {}
+}
+
+async function putSettings(patch) {
+  const token = $("token").value.trim(); if (!token) { $("msg").textContent = "Enter a token first."; return; }
+  localStorage.setItem("skibot_token", token);
+  const body = {...settings, ...patch};
+  const r = await fetch(`${API}/contents/config/settings.json`, {method: "PUT",
+    headers: {Authorization: "Bearer " + token, Accept: "application/vnd.github+json"},
+    body: JSON.stringify({message: "Update settings from dashboard", sha, content: btoa(unescape(encodeURIComponent(JSON.stringify(body, null, 2) + "\n")))})});
+  $("msg").textContent = r.ok ? "Saved." : "Failed: " + r.status; if (r.ok) load();
+}
+$("save").onclick = () => putSettings({post_time_local: $("time").value, timezone: $("tz").value.trim(), enabled: $("en").value === "true"});
+$("dry").onclick = async () => {
+  const token = $("token").value.trim(); if (!token) { $("msg").textContent = "Enter a token first."; return; }
+  const r = await fetch(`${API}/actions/workflows/post.yml/dispatches`, {method: "POST",
+    headers: {Authorization: "Bearer " + token, Accept: "application/vnd.github+json"},
+    body: JSON.stringify({ref: "main", inputs: {dry_run: "true", force: "false"}})});
+  $("msg").textContent = r.status === 204 ? "Dry run started – see the Actions tab." : "Failed: " + r.status;
+};
+load().catch(e => { $("logs").textContent = "Could not load data: " + e.message; });
+</script>
+</body>
+</html>
