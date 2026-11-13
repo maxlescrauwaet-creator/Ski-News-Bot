@@ -1,15 +1,12 @@
 {
-  "last_post_date": null,
-  "last_success_at": null,
+  "last_post_date": "2026-11-13",
+  "last_success_at": "2026-11-13T16:05:15Z",
   "last_run": {
-    "at": "2026-11-13T16:02:47Z",
-    "status": "failed",
-    "summary": "FileExistsError: [Errno 17] File exists: '/home/runner/work/Ski-News-Bot/Ski-News-Bot/docs/posts'"
+    "at": "2026-11-13T16:05:15Z",
+    "status": "success",
+    "summary": "Published profile post to discord: Zermatt, Switzerland"
   },
   "pending": null,
-  "consecutive_failures": 1,
-  "last_error": {
-    "at": "2026-11-13T16:02:47Z",
-    "message": "FileExistsError: [Errno 17] File exists: '/home/runner/work/Ski-News-Bot/Ski-News-Bot/docs/posts'"
-  }
+  "consecutive_failures": 0,
+  "last_error": null
 }
