@@ -1,0 +1,32 @@
+{
+  "_note": "Conservative, general-knowledge statements only. Review before enabling and add your own resorts. Each note must be something you can verify.",
+  "resorts": [
+    {"id": "zermatt", "name": "Zermatt", "aliases": ["Zermatt", "Matterhorn Ski Paradise", "Cervinia"], "country": "Switzerland", "region": "Valais",
+     "notes": ["The village is car-free and sits at the foot of the Matterhorn.", "The ski area is linked with Cervinia in Italy.", "Glacier terrain extends skiing deep into the season."],
+     "photo_query": "Zermatt Matterhorn ski", "tags": ["zermatt", "matterhorn", "switzerland"]},
+    {"id": "chamonix", "name": "Chamonix", "aliases": ["Chamonix", "Mont Blanc", "Aiguille du Midi"], "country": "France", "region": "Haute-Savoie",
+     "notes": ["The town lies at the foot of Mont Blanc, the highest mountain in the Alps.", "The Aiguille du Midi cable car climbs from the valley to a summit station at roughly 3,800 m.", "Chamonix hosted the first Winter Olympics in 1924."],
+     "photo_query": "Chamonix Mont Blanc ski", "tags": ["chamonix", "montblanc", "france"]},
+    {"id": "st-anton", "name": "St. Anton am Arlberg", "aliases": ["St. Anton", "St Anton", "Arlberg", "Lech Zürs"], "country": "Austria", "region": "Tyrol",
+     "notes": ["St. Anton is the birthplace of the Arlberg technique, an influential early method of teaching alpine skiing.", "The resort is known for demanding off-piste terrain and a lively après-ski scene."],
+     "photo_query": "St. Anton am Arlberg ski", "tags": ["stanton", "arlberg", "austria"]},
+    {"id": "niseko", "name": "Niseko", "aliases": ["Niseko", "Hokkaido"], "country": "Japan", "region": "Hokkaido",
+     "notes": ["Niseko is famous for its light, dry powder snow.", "Niseko United links four resort areas on the slopes of Mt. Niseko-Annupuri."],
+     "photo_query": "Niseko ski resort", "tags": ["niseko", "hokkaido", "japan"]},
+    {"id": "whistler", "name": "Whistler Blackcomb", "aliases": ["Whistler", "Blackcomb", "Whistler Blackcomb"], "country": "Canada", "region": "British Columbia",
+     "notes": ["Whistler Blackcomb hosted the alpine skiing events of the 2010 Winter Olympics.", "The Peak 2 Peak Gondola connects Whistler Mountain with Blackcomb Mountain."],
+     "photo_query": "Whistler Blackcomb ski", "tags": ["whistler", "blackcomb", "canada"]},
+    {"id": "cortina", "name": "Cortina d'Ampezzo", "aliases": ["Cortina", "Cortina d'Ampezzo"], "country": "Italy", "region": "Dolomites",
+     "notes": ["Cortina hosted the 1956 Winter Olympics and was a co-host of the Milano Cortina 2026 Winter Olympics.", "It lies in the Dolomites, a UNESCO World Heritage Site."],
+     "photo_query": "Cortina d'Ampezzo ski Dolomites", "tags": ["cortina", "dolomites", "italy"]},
+    {"id": "aspen", "name": "Aspen Snowmass", "aliases": ["Aspen", "Snowmass", "Aspen Highlands", "Buttermilk"], "country": "United States", "region": "Colorado",
+     "notes": ["The Aspen Snowmass area is made up of four mountains: Aspen Mountain, Aspen Highlands, Buttermilk and Snowmass."],
+     "photo_query": "Aspen Colorado ski mountain", "tags": ["aspen", "snowmass", "colorado"]},
+    {"id": "kitzbuehel", "name": "Kitzbühel", "aliases": ["Kitzbühel", "Kitzbuehel", "Hahnenkamm", "Streif"], "country": "Austria", "region": "Tyrol",
+     "notes": ["Kitzbühel hosts the Hahnenkamm races each winter, including the famous Streif downhill.", "The medieval town centre is a large part of the resort's appeal."],
+     "photo_query": "Kitzbühel Hahnenkamm ski", "tags": ["kitzbuhel", "hahnenkamm", "austria"]},
+    {"id": "val-thorens", "name": "Val Thorens", "aliases": ["Val Thorens", "Three Valleys", "Les 3 Vallées", "Trois Vallées"], "country": "France", "region": "Savoie",
+     "notes": ["Val Thorens is often described as the highest ski resort in Europe.", "It is part of the Three Valleys, commonly cited as the largest linked ski area in the world."],
+     "photo_query": "Val Thorens ski", "tags": ["valthorens", "3vallees", "france"]}
+  ]
+}
