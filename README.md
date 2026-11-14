@@ -1,3 +1,4 @@
+[README.md](https://github.com/user-attachments/files/34853587/README.md)
 # Ski News Bot – automated Instagram ski-news account
 
 Runs entirely on **GitHub Actions** (free for public repositories), publishes to **Discord** (webhook, default) and/or **Instagram** (official Graph API, optional),
@@ -9,6 +10,7 @@ generates graphics with **Pillow**, and needs **no paid AI API** and **no comput
 |---|---|---|
 | **Discord** (default, on) | works with no review | a webhook URL (Channel settings -> Integrations -> Webhooks) |
 | **Instagram** (off by default) | needs a Meta developer account | `IG_USER_ID`, `IG_ACCESS_TOKEN`, see below |
+| **Discord bot for other servers** (off by default) | slash commands via a free Cloudflare Worker, see `bot/README.md` | Discord app + Cloudflare account |
 | TikTok / YouTube | **not included** | both force API posts/uploads to *private* until the app passes the platform's audit |
 
 Switch targets in `config/settings.json` -> `publishers`. Several can be on at once.
@@ -84,7 +86,7 @@ Discord posts are an embed (headline, summary, key facts, source link in the tit
 1. **Create the repo.** New **public** repository, upload everything in this folder (keep the structure), default branch `main`.
 2. **Settings → Pages:** source = *Deploy from a branch*, branch `main`, folder `/docs`. Dashboard: `https://<user>.github.io/<repo>/`.
 3. **Settings → Actions → General → Workflow permissions:** *Read and write permissions*.
-4. **Edit `config/settings.json`:** `handle`, `brand_name`, `timezone`, `post_time_local`.
+4. **Edit `config/settings.json`:** `brand_name` (leave `handle` empty unless you have a real one – it is printed on the graphics), `timezone`, `post_time_local`.
 5. **Meta credentials** (only if you enable Instagram: set `publishers.instagram.enabled` to `true`)
    * developers.facebook.com → create app → add *Instagram Graph API*; in *Graph API Explorer* select your app and request
      `instagram_basic`, `instagram_content_publish`, `pages_show_list`, `pages_read_engagement`, `business_management`.
@@ -120,7 +122,9 @@ src/skibot/news.py           feed parsing, scoring, verification, de-duplication
 src/skibot/content.py        headline/summary/facts, grounded optional LLM, captions, hashtags
 src/skibot/images.py         Commons search + licence filter, fonts, 3 Pillow layouts
 src/skibot/instagram.py      Graph API publishing, retries, "posted today" check (optional)
-src/skibot/discord_hook.py   Discord webhook publishing
+src/skibot/discord_hook.py   Discord webhook publishing (+ optional @everyone)
+src/skibot/discord_bot.py    broadcast to all servers that ran /ski setup
+bot/                         Cloudflare Worker (slash commands), wrangler config, offline test, setup guide
 src/skibot/pipeline.py       scheduling logic, fallback chain, state/history/log
 src/skibot/gitops.py         commit & push results (Actions only)
 docs/index.html              dashboard (GitHub Pages)
