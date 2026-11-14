@@ -3,7 +3,7 @@
   "post_time_local": "18:00",
   "timezone": "Europe/Brussels",
   "brand_name": "Snowline Daily",
-  "handle": "@your_instagram_handle",
+  "handle": "",
   "max_age_hours": 96,
   "min_score": 5,
   "dedupe_days": 90,
@@ -24,7 +24,12 @@
       "enabled": false
     },
     "discord": {
-      "enabled": true
+      "enabled": true,
+      "mention_everyone": true
+    },
+    "discord_bot": {
+      "enabled": false,
+      "worker_url": ""
     }
   }
 }
