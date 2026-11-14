@@ -328,7 +328,8 @@ def layout_split(post, photo) -> Image.Image:
             y += blh
     d.line((MARGIN, 1236, W - MARGIN, 1236), fill=INK, width=2)
     tracked(d, (MARGIN, 1258), post["footer_left"].upper()[:48], font("sans", 22, "SemiBold"), INK, 3)
-    tracked(d, (W - MARGIN, 1258), post["handle"].upper()[:30], font("sans", 22, "SemiBold"), ACCENT, 3, anchor="r")
+    if post["handle"]:
+        tracked(d, (W - MARGIN, 1258), post["handle"].upper()[:30], font("sans", 22, "SemiBold"), ACCENT, 3, anchor="r")
     credit_bar(img, post.get("credit_line", ""), light=False)
     return img
 
@@ -353,13 +354,17 @@ def layout_typographic(post, photo=None) -> Image.Image:
     gradient(img, H - 190, H, (4, 8, 16), 0, 200)
     d = ImageDraw.Draw(img)
     tracked(d, (MARGIN, H - 96), post["footer_left"].upper()[:48], font("sans", 22, "SemiBold"), ICE, 3)
-    tracked(d, (W - MARGIN, H - 96), post["handle"].upper()[:30], font("sans", 22, "SemiBold"), (255, 150, 120), 3, anchor="r")
+    if post["handle"]:
+        tracked(d, (W - MARGIN, H - 96), post["handle"].upper()[:30], font("sans", 22, "SemiBold"), (255, 150, 120), 3, anchor="r")
     return img
 
 
 def render(post: dict, photo: Image.Image | None, settings: dict) -> Image.Image:
     """Pick a layout: photo news -> full-bleed or split (alternating by key); no photo -> typographic."""
-    post = {**post, "brand": settings["brand_name"], "handle": settings["handle"],
+    handle = (settings.get("handle") or "").strip()
+    if "your_" in handle.lower() or handle.lower() in ("@", "@handle"):
+        handle = ""  # never print a placeholder on a published graphic
+    post = {**post, "brand": settings["brand_name"], "handle": handle,
             "date_label": dt.date.today().strftime("%d %b %Y")}
     if photo is None:
         return layout_typographic(post)
