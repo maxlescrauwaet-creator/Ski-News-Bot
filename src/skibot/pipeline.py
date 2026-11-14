@@ -9,7 +9,7 @@ import re
 import sys
 from zoneinfo import ZoneInfo
 
-from . import content, discord_hook, images, news
+from . import content, discord_bot, discord_hook, images, news
 from .config import (CONFIG_DIR, DATA_DIR, OUT_DIR, POSTS_DIR, RunLog, iso, load_json, load_settings, parse_iso,
                      save_json, utcnow)
 from .gitops import commit_and_push
@@ -171,6 +171,7 @@ def run(dry_run=False, force=False, only=None) -> int:
     today = now.date().isoformat()
     use_ig = settings["publishers"]["instagram"]["enabled"]
     use_dc = settings["publishers"]["discord"]["enabled"]
+    use_bot = settings["publishers"]["discord_bot"]["enabled"]
     code = 0
     try:
         if not settings["enabled"] and not dry_run:
@@ -185,7 +186,7 @@ def run(dry_run=False, force=False, only=None) -> int:
                 return 0
         ig, hook = None, None
         if not dry_run:
-            if not (use_ig or use_dc):
+            if not (use_ig or use_dc or use_bot):
                 raise RuntimeError("No publisher enabled in config/settings.json")
             if use_ig:
                 uid, tok = os.getenv("IG_USER_ID"), os.getenv("IG_ACCESS_TOKEN")
@@ -203,6 +204,11 @@ def run(dry_run=False, force=False, only=None) -> int:
                 hook = os.getenv("DISCORD_WEBHOOK_URL")
                 if not hook:
                     raise RuntimeError("DISCORD_WEBHOOK_URL secret is missing")
+            if use_bot:
+                bot_token, bcast = os.getenv("DISCORD_BOT_TOKEN"), os.getenv("BROADCAST_SECRET")
+                worker_url = settings["publishers"]["discord_bot"].get("worker_url", "")
+                if not (bot_token and bcast and worker_url):
+                    raise RuntimeError("discord_bot needs DISCORD_BOT_TOKEN + BROADCAST_SECRET secrets and publishers.discord_bot.worker_url")
 
         pending = state.get("pending")
         if pending and pending.get("date") == today and not dry_run and (POSTS_DIR / pending["image"]).exists():
@@ -226,10 +232,22 @@ def run(dry_run=False, force=False, only=None) -> int:
         failures: list[str] = []
         if use_dc:
             try:
-                results["discord"] = discord_hook.send(hook, post, POSTS_DIR / image_name, settings["brand_name"])
+                results["discord"] = discord_hook.send(hook, post, POSTS_DIR / image_name, settings["brand_name"],
+                                                    settings["publishers"]["discord"].get("mention_everyone", False))
                 rl.info("Published to Discord")
             except Exception as exc:  # noqa: BLE001
                 failures.append(f"discord: {exc}")
+        if use_bot:
+            try:
+                res = discord_bot.broadcast(post, POSTS_DIR / image_name, settings["brand_name"], worker_url, bcast, bot_token)
+                rl.info(f"Discord bot broadcast: {res['delivered']}/{res['subscribers']} servers delivered, "
+                        f"{res['failed']} failed, {res['removed']} removed")
+                if res["delivered"] > 0 or res["subscribers"] == 0:
+                    results["discord_bot"] = res
+                elif res["subscribers"] > 0:
+                    failures.append("discord_bot: no server received the post")
+            except Exception as exc:  # noqa: BLE001
+                failures.append(f"discord_bot: {exc}")
         if use_ig:
             try:
                 commit_and_push(f"Prepare post {image_name}", ["docs"])  # Instagram needs a public image URL
