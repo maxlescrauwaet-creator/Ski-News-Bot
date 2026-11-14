@@ -36,5 +36,43 @@
         "msg": "Published to Discord"
       }
     ]
+  },
+  {
+    "started": "2026-11-14T16:46:51Z",
+    "finished": "2026-11-14T16:46:57Z",
+    "status": "success",
+    "summary": "Published news post to discord: SnowBrains Forecast: Hokkaido Leads Japan’s Early-Week Snowfall",
+    "lines": [
+      {
+        "t": "2026-11-14T16:46:54Z",
+        "level": "WARN",
+        "msg": "Feed problem - Freeskier: HTTPError: 429 Client Error: Too Many Requests for url: https://freeskier.com/feed"
+      },
+      {
+        "t": "2026-11-14T16:46:54Z",
+        "level": "INFO",
+        "msg": "Fetched 205 items from 12 feeds"
+      },
+      {
+        "t": "2026-11-14T16:46:54Z",
+        "level": "INFO",
+        "msg": "53 verified, relevant, fresh, non-duplicate candidates"
+      },
+      {
+        "t": "2026-11-14T16:46:55Z",
+        "level": "INFO",
+        "msg": "Using stage 'news': SnowBrains Forecast: Hokkaido Leads Japan’s Early-Week Snowfall"
+      },
+      {
+        "t": "2026-11-14T16:46:55Z",
+        "level": "INFO",
+        "msg": "Photo: File:Nook Annupuri.jpg (CC BY-SA 4.0)"
+      },
+      {
+        "t": "2026-11-14T16:46:57Z",
+        "level": "INFO",
+        "msg": "Published to Discord"
+      }
+    ]
   }
 ]
