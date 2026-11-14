@@ -23,7 +23,7 @@ DEFAULTS: dict[str, Any] = {
     "post_time_local": "18:00",
     "timezone": "Europe/Brussels",
     "brand_name": "Snowline Daily",
-    "handle": "@your_instagram_handle",
+    "handle": "",
     "max_age_hours": 96,
     "min_score": 5,
     "dedupe_days": 90,
@@ -33,7 +33,8 @@ DEFAULTS: dict[str, Any] = {
     "hashtag_limit": 12,
     "graph": {"host": "graph.facebook.com", "version": "v23.0"},
     "llm": {"enabled": False, "model": "openai/gpt-4.1-mini"},
-    "publishers": {"instagram": {"enabled": False}, "discord": {"enabled": True}},
+    "publishers": {"instagram": {"enabled": False}, "discord": {"enabled": True, "mention_everyone": True},
+                   "discord_bot": {"enabled": False, "worker_url": ""}},
 }
 
 
