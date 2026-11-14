@@ -2,15 +2,12 @@ name = "ski-news-bot"
 main = "worker.js"
 compatibility_date = "2024-11-01"
 
-# ...
 [[kv_namespaces]]
 binding = "SUBS"
-id = "ac6a3b13e6ea4fd6b292de01f0186f9c"
-# ...
-   # npx wrangler kv namespace create SUBS
+id = "REPLACE_WITH_KV_NAMESPACE_ID"   # npx wrangler kv namespace create SUBS
 
 [vars]
-DISCORD_PUBLIC_KEY = "b4d6b6a6b387e849d6d2cf0158e5ec682bf209aa3007715ce261775b825730af"  # Discord developer portal -> General Information
+DISCORD_PUBLIC_KEY = "REPLACE_WITH_APPLICATION_PUBLIC_KEY"  # Discord developer portal -> General Information
 SITE_URL = ""                        # your website, shown in command replies
 DEFAULT_MENTION_EVERYONE = "false"   # default for servers that do not choose; see bot/README.md
 
