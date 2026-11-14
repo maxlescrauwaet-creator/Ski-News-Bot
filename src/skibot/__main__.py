@@ -12,7 +12,7 @@ from .pipeline import run
 
 def selftest() -> int:
     """Render sample graphics offline so layouts can be checked without any network or credentials."""
-    s = {"brand_name": "Snowline Daily", "handle": "@your_handle"}
+    s = {"brand_name": "Snowline Daily", "handle": ""}
     base = {"kicker": "Snowmaking", "headline": "Resort adds 40 new snow guns ahead of the winter season",
             "blurb": "The upgrade covers the main beginner slopes and the lower mountain.", "footer_left": "Source: Example",
             "source_label": "Example", "credit_line": "Photo: Example Author · CC BY 4.0 · Wikimedia Commons"}
