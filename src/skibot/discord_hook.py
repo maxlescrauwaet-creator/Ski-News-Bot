@@ -19,7 +19,7 @@ class DiscordError(RuntimeError):
     pass
 
 
-def build_payload(post: dict, filename: str, brand: str) -> dict:
+def build_payload(post: dict, filename: str, brand: str, mention_everyone: bool = False) -> dict:
     parts = [post.get("summary", "")]
     if post.get("facts"):
         parts.append("\n".join(f"▪ {f}" for f in post["facts"]))
@@ -36,13 +36,18 @@ def build_payload(post: dict, filename: str, brand: str) -> dict:
     }
     if post.get("url"):
         embed["url"] = post["url"]  # title links to the original article
-    return {"username": brand[:80], "embeds": [embed]}
+    payload = {"username": brand[:80], "embeds": [embed],
+               # explicit allow-list: only @everyone/@here may ping, never roles or users from post text
+               "allowed_mentions": {"parse": ["everyone"] if mention_everyone else []}}
+    if mention_everyone:
+        payload["content"] = "@everyone"
+    return payload
 
 
-def send(webhook_url: str, post: dict, image_path: Path, brand: str) -> dict:
+def send(webhook_url: str, post: dict, image_path: Path, brand: str, mention_everyone: bool = False) -> dict:
     if not webhook_url.startswith(ALLOWED):
         raise DiscordError("DISCORD_WEBHOOK_URL does not look like a Discord webhook URL")
-    payload = build_payload(post, image_path.name, brand)
+    payload = build_payload(post, image_path.name, brand, mention_everyone)
     data = image_path.read_bytes()
     last = ""
     for attempt in range(1, 4):
