@@ -74,5 +74,43 @@
         "msg": "Published to Discord"
       }
     ]
+  },
+  {
+    "started": "2026-11-14T21:26:51Z",
+    "finished": "2026-11-14T21:27:01Z",
+    "status": "success",
+    "summary": "Published news post to discord: Two major Front Range ski resorts celebrate opening day with winter we",
+    "lines": [
+      {
+        "t": "2026-11-14T21:26:55Z",
+        "level": "WARN",
+        "msg": "Feed problem - Freeskier: HTTPError: 429 Client Error: Too Many Requests for url: https://freeskier.com/feed"
+      },
+      {
+        "t": "2026-11-14T21:26:55Z",
+        "level": "INFO",
+        "msg": "Fetched 205 items from 12 feeds"
+      },
+      {
+        "t": "2026-11-14T21:26:56Z",
+        "level": "INFO",
+        "msg": "41 verified, relevant, fresh, non-duplicate candidates"
+      },
+      {
+        "t": "2026-11-14T21:26:57Z",
+        "level": "INFO",
+        "msg": "Using stage 'news': Two major Front Range ski resorts celebrate opening day with winter weather on t"
+      },
+      {
+        "t": "2026-11-14T21:26:58Z",
+        "level": "INFO",
+        "msg": "Photo: File:7 Springs Mountain resort - panoramio (17).jpg (CC BY 3.0)"
+      },
+      {
+        "t": "2026-11-14T21:27:01Z",
+        "level": "INFO",
+        "msg": "Published to Discord"
+      }
+    ]
   }
 ]
