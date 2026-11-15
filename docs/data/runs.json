@@ -112,5 +112,43 @@
         "msg": "Published to Discord"
       }
     ]
+  },
+  {
+    "started": "2026-11-15T21:36:06Z",
+    "finished": "2026-11-15T21:36:13Z",
+    "status": "success",
+    "summary": "Published news post to discord: Sugar Mountain Ski Resort Has Opened for the 2026-27 Winter Ski and Sn",
+    "lines": [
+      {
+        "t": "2026-11-15T21:36:09Z",
+        "level": "WARN",
+        "msg": "Feed problem - Freeskier: HTTPError: 429 Client Error: Too Many Requests for url: https://freeskier.com/feed"
+      },
+      {
+        "t": "2026-11-15T21:36:09Z",
+        "level": "INFO",
+        "msg": "Fetched 209 items from 12 feeds"
+      },
+      {
+        "t": "2026-11-15T21:36:09Z",
+        "level": "INFO",
+        "msg": "34 verified, relevant, fresh, non-duplicate candidates"
+      },
+      {
+        "t": "2026-11-15T21:36:09Z",
+        "level": "INFO",
+        "msg": "Using stage 'news': Sugar Mountain Ski Resort Has Opened for the 2026-27 Winter Ski and Snowboard Se"
+      },
+      {
+        "t": "2026-11-15T21:36:10Z",
+        "level": "INFO",
+        "msg": "Photo: File:Ski resort, Soelden (P1032614).jpg (CC BY-SA 4.0)"
+      },
+      {
+        "t": "2026-11-15T21:36:13Z",
+        "level": "INFO",
+        "msg": "Published to Discord"
+      }
+    ]
   }
 ]
