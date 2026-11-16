@@ -150,5 +150,43 @@
         "msg": "Published to Discord"
       }
     ]
+  },
+  {
+    "started": "2026-11-16T20:11:12Z",
+    "finished": "2026-11-16T20:11:21Z",
+    "status": "success",
+    "summary": "Published news post to discord: Alaska’s ‘Best-Kept Secret’ Ski Area Embraces a New Chapter After Gond",
+    "lines": [
+      {
+        "t": "2026-11-16T20:11:15Z",
+        "level": "WARN",
+        "msg": "Feed problem - Freeskier: HTTPError: 429 Client Error: Too Many Requests for url: https://freeskier.com/feed"
+      },
+      {
+        "t": "2026-11-16T20:11:15Z",
+        "level": "INFO",
+        "msg": "Fetched 209 items from 12 feeds"
+      },
+      {
+        "t": "2026-11-16T20:11:15Z",
+        "level": "INFO",
+        "msg": "41 verified, relevant, fresh, non-duplicate candidates"
+      },
+      {
+        "t": "2026-11-16T20:11:16Z",
+        "level": "INFO",
+        "msg": "Using stage 'news': Alaska’s ‘Best-Kept Secret’ Ski Area Embraces a New Chapter After Gondola Setbac"
+      },
+      {
+        "t": "2026-11-16T20:11:16Z",
+        "level": "INFO",
+        "msg": "Photo: File:Ski resort, Soelden (P1032645).jpg (CC BY-SA 4.0)"
+      },
+      {
+        "t": "2026-11-16T20:11:21Z",
+        "level": "INFO",
+        "msg": "Published to Discord"
+      }
+    ]
   }
 ]
