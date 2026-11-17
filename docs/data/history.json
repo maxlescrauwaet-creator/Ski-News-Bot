@@ -88,5 +88,23 @@
     ],
     "media_id": null,
     "permalink": ""
+  },
+  {
+    "key": "profile:zermatt",
+    "kind": "profile",
+    "topic": "profile",
+    "title": "Zermatt",
+    "headline": "Zermatt, Switzerland",
+    "url": "",
+    "source": "Editorial",
+    "posted_at": "2026-11-17T21:38:10Z",
+    "image": "2026-11-17-profile-zermatt.jpg",
+    "caption": "Resort spotlight: Zermatt, Switzerland\n\nThe village is car-free and sits at the foot of the Matterhorn. The ski area is linked with Cervinia in Italy. Glacier terrain extends skiing deep into the season.\n\nPhoto: Roy Egloff (CC BY-SA 4.0), Wikimedia Commons. Illustrative image.\n\n#zermatt #matterhorn #switzerland #skiresortspotlight #skitravel #skiing #skiresort #snow #wintersports #mountains #skinews",
+    "photo_title": "File:CH.VS.Zermatt 2022-07-16 Air-Zermatt 5926 16x9-R 11K.jpg",
+    "posted_to": [
+      "discord"
+    ],
+    "media_id": null,
+    "permalink": ""
   }
 ]

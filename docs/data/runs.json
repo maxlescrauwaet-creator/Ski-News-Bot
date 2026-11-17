@@ -188,5 +188,48 @@
         "msg": "Published to Discord"
       }
     ]
+  },
+  {
+    "started": "2026-11-17T21:38:04Z",
+    "finished": "2026-11-17T21:38:10Z",
+    "status": "success",
+    "summary": "Published profile post to discord: Zermatt, Switzerland",
+    "lines": [
+      {
+        "t": "2026-11-17T21:38:07Z",
+        "level": "WARN",
+        "msg": "Feed problem - Freeskier: HTTPError: 429 Client Error: Too Many Requests for url: https://freeskier.com/feed"
+      },
+      {
+        "t": "2026-11-17T21:38:07Z",
+        "level": "INFO",
+        "msg": "Fetched 211 items from 12 feeds"
+      },
+      {
+        "t": "2026-11-17T21:38:08Z",
+        "level": "INFO",
+        "msg": "47 verified, relevant, fresh, non-duplicate candidates"
+      },
+      {
+        "t": "2026-11-17T21:38:08Z",
+        "level": "INFO",
+        "msg": "Stage 'news' had nothing suitable - falling back"
+      },
+      {
+        "t": "2026-11-17T21:38:08Z",
+        "level": "INFO",
+        "msg": "Using stage 'profile': Zermatt, Switzerland"
+      },
+      {
+        "t": "2026-11-17T21:38:09Z",
+        "level": "INFO",
+        "msg": "Photo: File:CH.VS.Zermatt 2022-07-16 Air-Zermatt 5926 16x9-R 11K.jpg (CC BY-SA 4.0)"
+      },
+      {
+        "t": "2026-11-17T21:38:10Z",
+        "level": "INFO",
+        "msg": "Published to Discord"
+      }
+    ]
   }
 ]
