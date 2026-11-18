@@ -106,5 +106,23 @@
     ],
     "media_id": null,
     "permalink": ""
+  },
+  {
+    "key": "profile:chamonix",
+    "kind": "profile",
+    "topic": "profile",
+    "title": "Chamonix",
+    "headline": "Chamonix, France",
+    "url": "",
+    "source": "Editorial",
+    "posted_at": "2026-11-18T21:15:29Z",
+    "image": "2026-11-18-profile-chamonix.jpg",
+    "caption": "Resort spotlight: Chamonix, France\n\nThe town lies at the foot of Mont Blanc, the highest mountain in the Alps. The Aiguille du Midi cable car climbs from the valley to a summit station at roughly 3,800 m. Chamonix hosted the first Winter Olympics in 1924.\n\nPhoto: Webwizzard (CC BY-SA 4.0), Wikimedia Commons. Illustrative image.\n\n#chamonix #montblanc #france #skiresortspotlight #skitravel #skiing #skiresort #snow #wintersports #mountains #skinews",
+    "photo_title": "File:Ski Touring group Chamonix Mont Blanc.JPG",
+    "posted_to": [
+      "discord"
+    ],
+    "media_id": null,
+    "permalink": ""
   }
 ]

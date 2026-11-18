@@ -1,10 +1,10 @@
 {
-  "last_post_date": "2026-11-17",
-  "last_success_at": "2026-11-17T21:38:10Z",
+  "last_post_date": "2026-11-18",
+  "last_success_at": "2026-11-18T21:15:29Z",
   "last_run": {
-    "at": "2026-11-17T21:38:10Z",
+    "at": "2026-11-18T21:15:29Z",
     "status": "success",
-    "summary": "Published profile post to discord: Zermatt, Switzerland"
+    "summary": "Published profile post to discord: Chamonix, France"
   },
   "pending": null,
   "consecutive_failures": 0,
