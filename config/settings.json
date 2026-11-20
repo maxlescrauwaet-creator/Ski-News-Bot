@@ -25,7 +25,7 @@
     },
     "discord": {
       "enabled": true,
-      "mention_everyone": true
+      "mention_everyone": false
     },
     "discord_bot": {
       "enabled": false,
