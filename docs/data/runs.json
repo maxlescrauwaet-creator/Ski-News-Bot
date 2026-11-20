@@ -317,5 +317,48 @@
         "msg": "Published to Discord"
       }
     ]
+  },
+  {
+    "started": "2026-11-20T19:52:11Z",
+    "finished": "2026-11-20T19:52:20Z",
+    "status": "success",
+    "summary": "Published profile post to discord: Niseko, Japan",
+    "lines": [
+      {
+        "t": "2026-11-20T19:52:14Z",
+        "level": "WARN",
+        "msg": "Feed problem - Freeskier: HTTPError: 429 Client Error: Too Many Requests for url: https://freeskier.com/feed"
+      },
+      {
+        "t": "2026-11-20T19:52:14Z",
+        "level": "INFO",
+        "msg": "Fetched 200 items from 12 feeds"
+      },
+      {
+        "t": "2026-11-20T19:52:14Z",
+        "level": "INFO",
+        "msg": "59 verified, relevant, fresh, non-duplicate candidates"
+      },
+      {
+        "t": "2026-11-20T19:52:15Z",
+        "level": "INFO",
+        "msg": "Stage 'news' had nothing suitable - falling back"
+      },
+      {
+        "t": "2026-11-20T19:52:15Z",
+        "level": "INFO",
+        "msg": "Using stage 'profile': Niseko, Japan"
+      },
+      {
+        "t": "2026-11-20T19:52:16Z",
+        "level": "INFO",
+        "msg": "Photo: File:Park Hyatt NISEKO HANAZONO and Beginner Ski Area HANAZONO Tube Park.jpg (CC BY-SA 4.0)"
+      },
+      {
+        "t": "2026-11-20T19:52:20Z",
+        "level": "INFO",
+        "msg": "Published to Discord"
+      }
+    ]
   }
 ]
