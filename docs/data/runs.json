@@ -360,5 +360,48 @@
         "msg": "Published to Discord"
       }
     ]
+  },
+  {
+    "started": "2026-11-21T17:15:28Z",
+    "finished": "2026-11-21T17:15:36Z",
+    "status": "success",
+    "summary": "Published profile post to discord: Whistler Blackcomb, Canada",
+    "lines": [
+      {
+        "t": "2026-11-21T17:15:31Z",
+        "level": "WARN",
+        "msg": "Feed problem - Freeskier: HTTPError: 429 Client Error: Too Many Requests for url: https://freeskier.com/feed"
+      },
+      {
+        "t": "2026-11-21T17:15:31Z",
+        "level": "INFO",
+        "msg": "Fetched 200 items from 12 feeds"
+      },
+      {
+        "t": "2026-11-21T17:15:32Z",
+        "level": "INFO",
+        "msg": "48 verified, relevant, fresh, non-duplicate candidates"
+      },
+      {
+        "t": "2026-11-21T17:15:32Z",
+        "level": "INFO",
+        "msg": "Stage 'news' had nothing suitable - falling back"
+      },
+      {
+        "t": "2026-11-21T17:15:32Z",
+        "level": "INFO",
+        "msg": "Using stage 'profile': Whistler Blackcomb, Canada"
+      },
+      {
+        "t": "2026-11-21T17:15:33Z",
+        "level": "INFO",
+        "msg": "Photo: File:2010-4 Whistler-Blackcomb day trip (15533603093).jpg (CC BY-SA 2.0)"
+      },
+      {
+        "t": "2026-11-21T17:15:36Z",
+        "level": "INFO",
+        "msg": "Published to Discord"
+      }
+    ]
   }
 ]

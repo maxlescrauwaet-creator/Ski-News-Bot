@@ -160,5 +160,23 @@
     ],
     "media_id": null,
     "permalink": ""
+  },
+  {
+    "key": "profile:whistler",
+    "kind": "profile",
+    "topic": "profile",
+    "title": "Whistler Blackcomb",
+    "headline": "Whistler Blackcomb, Canada",
+    "url": "",
+    "source": "Editorial",
+    "posted_at": "2026-11-21T17:15:36Z",
+    "image": "2026-11-21-profile-whistler.jpg",
+    "caption": "Resort spotlight: Whistler Blackcomb, Canada\n\nWhistler Blackcomb hosted the alpine skiing events of the 2010 Winter Olympics. The Peak 2 Peak Gondola connects Whistler Mountain with Blackcomb Mountain.\n\nPhoto: Murray Foubister (CC BY-SA 2.0), Wikimedia Commons. Illustrative image.\n\n#whistler #blackcomb #canada #skiresortspotlight #skitravel #skiing #skiresort #snow #wintersports #mountains #skinews",
+    "photo_title": "File:2010-4 Whistler-Blackcomb day trip (15533603093).jpg",
+    "posted_to": [
+      "discord"
+    ],
+    "media_id": null,
+    "permalink": ""
   }
 ]
