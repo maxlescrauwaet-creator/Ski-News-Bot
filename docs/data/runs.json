@@ -403,5 +403,43 @@
         "msg": "Published to Discord"
       }
     ]
+  },
+  {
+    "started": "2026-11-22T18:22:39Z",
+    "finished": "2026-11-22T18:22:45Z",
+    "status": "success",
+    "summary": "Published news post to discord: SnowBrains Forecast: The Week Ahead in Western North America Brings He",
+    "lines": [
+      {
+        "t": "2026-11-22T18:22:42Z",
+        "level": "WARN",
+        "msg": "Feed problem - Freeskier: HTTPError: 429 Client Error: Too Many Requests for url: https://freeskier.com/feed"
+      },
+      {
+        "t": "2026-11-22T18:22:42Z",
+        "level": "INFO",
+        "msg": "Fetched 203 items from 12 feeds"
+      },
+      {
+        "t": "2026-11-22T18:22:42Z",
+        "level": "INFO",
+        "msg": "33 verified, relevant, fresh, non-duplicate candidates"
+      },
+      {
+        "t": "2026-11-22T18:22:43Z",
+        "level": "INFO",
+        "msg": "Using stage 'news': SnowBrains Forecast: The Week Ahead in Western North America Brings Heavy Snow t"
+      },
+      {
+        "t": "2026-11-22T18:22:44Z",
+        "level": "INFO",
+        "msg": "Photo: File:Older Poma Detachable Whistler Canada.jpg (CC BY-SA 3.0)"
+      },
+      {
+        "t": "2026-11-22T18:22:45Z",
+        "level": "INFO",
+        "msg": "Published to Discord"
+      }
+    ]
   }
 ]
