@@ -1,10 +1,10 @@
 {
-  "last_post_date": "2026-11-22",
-  "last_success_at": "2026-11-22T18:22:45Z",
+  "last_post_date": "2026-11-23",
+  "last_success_at": "2026-11-23T21:04:17Z",
   "last_run": {
-    "at": "2026-11-22T18:22:45Z",
+    "at": "2026-11-23T21:04:17Z",
     "status": "success",
-    "summary": "Published news post to discord: SnowBrains Forecast: The Week Ahead in Western North America Brings He"
+    "summary": "Published profile post to discord: Cortina d'Ampezzo, Italy"
   },
   "pending": null,
   "consecutive_failures": 0,
