@@ -484,5 +484,48 @@
         "msg": "Published to Discord"
       }
     ]
+  },
+  {
+    "started": "2026-11-24T17:22:10Z",
+    "finished": "2026-11-24T17:22:18Z",
+    "status": "success",
+    "summary": "Published profile post to discord: Aspen Snowmass, United States",
+    "lines": [
+      {
+        "t": "2026-11-24T17:22:13Z",
+        "level": "WARN",
+        "msg": "Feed problem - Freeskier: HTTPError: 429 Client Error: Too Many Requests for url: https://freeskier.com/feed"
+      },
+      {
+        "t": "2026-11-24T17:22:13Z",
+        "level": "INFO",
+        "msg": "Fetched 195 items from 12 feeds"
+      },
+      {
+        "t": "2026-11-24T17:22:14Z",
+        "level": "INFO",
+        "msg": "47 verified, relevant, fresh, non-duplicate candidates"
+      },
+      {
+        "t": "2026-11-24T17:22:14Z",
+        "level": "INFO",
+        "msg": "Stage 'news' had nothing suitable - falling back"
+      },
+      {
+        "t": "2026-11-24T17:22:14Z",
+        "level": "INFO",
+        "msg": "Using stage 'profile': Aspen Snowmass, United States"
+      },
+      {
+        "t": "2026-11-24T17:22:15Z",
+        "level": "INFO",
+        "msg": "Photo: File:Aspen Highlands cloud 9.jpg (CC BY-SA 3.0)"
+      },
+      {
+        "t": "2026-11-24T17:22:18Z",
+        "level": "INFO",
+        "msg": "Published to Discord"
+      }
+    ]
   }
 ]
