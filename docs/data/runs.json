@@ -527,5 +527,48 @@
         "msg": "Published to Discord"
       }
     ]
+  },
+  {
+    "started": "2026-11-25T22:18:01Z",
+    "finished": "2026-11-25T22:18:07Z",
+    "status": "success",
+    "summary": "Published profile post to discord: Kitzbühel, Austria",
+    "lines": [
+      {
+        "t": "2026-11-25T22:18:04Z",
+        "level": "WARN",
+        "msg": "Feed problem - Freeskier: HTTPError: 429 Client Error: Too Many Requests for url: https://freeskier.com/feed"
+      },
+      {
+        "t": "2026-11-25T22:18:04Z",
+        "level": "INFO",
+        "msg": "Fetched 204 items from 12 feeds"
+      },
+      {
+        "t": "2026-11-25T22:18:05Z",
+        "level": "INFO",
+        "msg": "47 verified, relevant, fresh, non-duplicate candidates"
+      },
+      {
+        "t": "2026-11-25T22:18:05Z",
+        "level": "INFO",
+        "msg": "Stage 'news' had nothing suitable - falling back"
+      },
+      {
+        "t": "2026-11-25T22:18:05Z",
+        "level": "INFO",
+        "msg": "Using stage 'profile': Kitzbühel, Austria"
+      },
+      {
+        "t": "2026-11-25T22:18:06Z",
+        "level": "INFO",
+        "msg": "Photo: File:AUT — Tirol — KB — Kitzbühel — Hahnenkamm — Stadtpark (Steinbock-Darstellung mit Schriftzug \"Hahnenkamm-Rennen\") 2024-08-31 Mattes.jpg (CC BY-SA 4.0)"
+      },
+      {
+        "t": "2026-11-25T22:18:07Z",
+        "level": "INFO",
+        "msg": "Published to Discord"
+      }
+    ]
   }
 ]
