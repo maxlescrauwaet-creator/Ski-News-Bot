@@ -250,5 +250,23 @@
     ],
     "media_id": null,
     "permalink": ""
+  },
+  {
+    "key": "profile:val-thorens",
+    "kind": "profile",
+    "topic": "profile",
+    "title": "Val Thorens",
+    "headline": "Val Thorens, France",
+    "url": "",
+    "source": "Editorial",
+    "posted_at": "2026-11-27T18:00:00Z",
+    "image": "2026-11-27-profile-val-thorens.jpg",
+    "caption": "Resort spotlight: Val Thorens, France\n\nVal Thorens is often described as the highest ski resort in Europe. It is part of the Three Valleys, commonly cited as the largest linked ski area in the world.\n\nPhoto: Florian Pépellin (CC BY-SA 4.0), Wikimedia Commons. Illustrative image.\n\n#valthorens #3vallees #france #skiresortspotlight #skitravel #skiing #skiresort #snow #wintersports #mountains #skinews",
+    "photo_title": "File:Col du Bouchet entre Val Thorens et Orelle (hiver 2019).JPG",
+    "posted_to": [
+      "discord"
+    ],
+    "media_id": null,
+    "permalink": ""
   }
 ]
